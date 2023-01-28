@@ -5,7 +5,6 @@ for(let i = 0; i<nums.length; i++) {
         for(let k = j + 1; k < nums.length; k++) {
             if (isSosoo(nums[i], nums[j], nums[k])) sosoo.push('a')
             }
-            
         }
     } 
     return sosoo.length;
