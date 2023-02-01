@@ -1,22 +1,12 @@
 const input = +require('fs').readFileSync('/dev/stdin').toString();
 
-let Don = 0;
+let Don = 1000 - input;
+let count = 0;
+let coint_types = [500, 100, 50, 10, 5, 1]
 
-Don += parseInt((1000 - input)/500) 
+for (coin of coint_types) {
+    count += parseInt(Don/coin);
+    Don %= coin
+}
 
-if ((1000 - input)%500 !== 0) {
-    Don += parseInt((1000 - input)%500 / 100)
-} 
-if ((1000 - input)%500 % 100 !== 0) {
-    Don += parseInt((1000 - input)%500 % 100 /50)
-}
-if ((1000 - input)%500 % 100 % 50 !== 0) {
-    Don += parseInt((1000 - input)%500 % 100 % 50 /10)
-}
-if ((1000 - input)%500 % 100 % 50 % 10 !== 0) {
-    Don += parseInt((1000 - input)%500 % 100 % 50 % 10 / 5)
-}
-if ((1000 - input)%500 % 100 % 50 % 10 % 5 !== 0) {
-    Don += parseInt((1000 - input)%500 % 100 % 50 % 10 % 5 / 1)
-}
-console.log(Don)
+console.log(count)
