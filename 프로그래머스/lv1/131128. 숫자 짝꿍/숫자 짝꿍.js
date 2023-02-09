@@ -26,11 +26,11 @@ function solution(X, Y) {
         if (result === "") return '-1'
         if (+result === 0) return "0"
     
-        // result = result.split("")
-        // result.sort((a,b)=>b-a)
-        // result = BigInt(result.join("")).toString()
-    
-        return result.split("").sort((a,b)=>b-a).join("")
+        result = result.split("")
+        result.sort((a,b)=>b-a)
+        result = result.join("") // before  // BigInt(result.join("")).toString()
+    return result
+        // return result.split("").sort((a,b)=>Number(b)-Number(a)).join("")
 }
 
 // input : 두 정수
