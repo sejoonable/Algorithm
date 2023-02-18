@@ -1,22 +1,22 @@
 function solution(arr) {
-    let answer = 0;
-    
-    //한 숫자를 계속 곱해주고, 나눈 나머지의 값이 모두 0으로 떨어지면
-    // 모든 값의 최소공배수가 구해진다.
-    let n = 1, flag = false;
-    while(!flag)
-        {
-            n++;
-            for(let i = 1; i < arr.length; i++) {
-                if((arr[0] * n) % arr[i] === 0){
-                    flag = true;
-                } else {
-                    flag = false;
-                    break;
-                }
-            }
+    let gop = 1
+    let result = 0
+    let count = 0
+    let flag = true
+    while(flag) {
+        for(let i = 1; i < arr.length; i++) {
+        if (arr[0] * gop % arr[i] === 0) {
+            result = arr[0] * gop
+            count += 1
+        } else {
+            break;
         }
-    
-    answer = arr[0] * n;
-    return answer
+        if (count === arr.length -1) {
+            flag = false
+        } 
+        }
+        count = 0
+        gop++
+        
+    } return result
 }
